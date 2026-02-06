@@ -1,0 +1,85 @@
+:root {
+  --tech-black: #050505;
+  --tech-gray: #1a1a1a;
+  --tech-green: #ccff00; /* Neon Yellow/Green */
+  --tech-cyan: #00ffff;
+  --text-main: #ffffff;
+  --text-dim: #888888; /* Dimmer gray for that 'hacker' look */
+  --font-mono: 'Courier New', Courier, monospace;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--tech-black);
+  color: var(--text-main);
+  background-image: 
+    linear-gradient(to right, #80808012 1px, transparent 1px),
+    linear-gradient(to bottom, #80808012 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.text-gradient {
+  background: linear-gradient(to right, var(--tech-green), var(--tech-cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* --- NEW STYLES --- */
+
+/* 1. Fix the Back Link Color (Override browser default purple) */
+.back-link {
+  color: var(--tech-green) !important;
+  text-decoration: none;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+.back-link:hover {
+  opacity: 1;
+}
+.back-link:visited {
+  color: var(--tech-green) !important; /* Forces it to stay green */
+}
+
+/* --- UPDATED SOP TEXT STYLES --- */
+
+/* 1. Base Text (Dimmed Gray & Spacious) */
+.sop-text {
+  color: var(--text-dim);
+  font-size: 1.125rem; 
+  line-height: 2;      
+  letter-spacing: 0.02em;
+}
+
+/* 2. Handle Google's internal tags */
+.sop-text p, .sop-text span {
+  color: inherit !important; 
+  background-color: transparent !important;
+  margin: 0;
+  display: inline; 
+}
+
+/* 3. THE BOLD FIX: Target every possible way Google makes text bold */
+.sop-text strong, 
+.sop-text b,
+.sop-text span[style*="font-weight: 700"], /* Google Bold (Standard) */
+.sop-text span[style*="font-weight:700"],  /* Google Bold (Compressed) */
+.sop-text span[style*="font-weight: bold"] {
+  color: #ffffff !important;         
+  font-weight: 900 !important;       
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0) !important; /* Stronger glow */
+  opacity: 1 !important; /* Ensure it's fully visible */
+}
+
+/* 4. Highlight LINKS */
+.sop-text a {
+  color: var(--tech-cyan) !important;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
